@@ -1,3 +1,12 @@
+let express = require('express');
+let app = express();
+let port = process.env.port || 8080;
+app.listen(port,()=>{
+  console.log('Listening to ', port);
+});
+app.use('/',express.static('./public', {
+  root: __dirname + './public'
+}))
 let WebSocket = require('ws');
 let sites = require('./sites.json');
 let {log} = console;
